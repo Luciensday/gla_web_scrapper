@@ -1,16 +1,13 @@
 
+
 import requests
+from bs4 import BeautifulSoup
 
-r = requests.get("https://www.london.gov.uk/sitemap.xml?page=1")
+sitemap_url = "https://www.london.gov.uk/sitemap.xml?page=1"
+response = requests.get(sitemap_url)
+sitemap_content = response.text
 
-print(dir(r))
-
-# import requests
-# from bs4 import BeautifulSoup
-
-# sitemap_url = "https://www.london.gov.uk/sitemap.xml?page=1"
-# response = requests.get(sitemap_url)
-# sitemap_content = response.text
+print(sitemap_content)
 
 # soup = BeautifulSoup(sitemap_content, "xml")
 # urls = [loc.text for loc in soup.find_all("loc")]
