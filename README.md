@@ -25,7 +25,8 @@ After evaluating three options for optimization, Asyncio is the most suitable so
 - **Multiprocessing:** Maximizes performance on CPU-intensive tasks, suitable for solving CPU-bound problems. However, it may cause overload and is not ideal for lightweight processes.
 - **Threading:** Suitable for parallel tasks that share data with minimal CPU usage. However, in this project, threads could be cumbersome to manage and are not the best fit.
 
-![Screenshot 2024-04-20 at 00.15.08.png]
+<img width="394" alt="Screenshot 2024-04-20 at 00 15 08" src="https://github.com/Luciensday/gla_web_scrapper/assets/128807685/7c057fac-7323-4cb6-ae81-ec1dc194fb3a">
+
 
 The key differences in the optimized solution are:
 - Usage of `aiohttp` instead of the `requests` library because `aiohttp` can handle asynchronous data fetching efficiently.
@@ -40,4 +41,5 @@ The key differences in the optimized solution are:
 - This option utilizes the `requests` library.
     - Cons: `requests` is not designed for asynchronous processes.
     - Pros: `requests.get(url, timeout=10)` allows us to set a timeout limit to prevent undue load. (as per below image)
-  ![[Screenshot 2024-04-20 at 00.29.41.png]]
+  
+<img width="419" alt="Screenshot 2024-04-20 at 00 40 01" src="https://github.com/Luciensday/gla_web_scrapper/assets/128807685/bdc66487-d491-452b-9e88-30c45e7ebf7f">
