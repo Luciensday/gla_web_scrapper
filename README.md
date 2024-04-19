@@ -25,7 +25,7 @@ After evaluating three options for optimization, Asyncio is the most suitable so
 - **Multiprocessing:** Maximizes performance on CPU-intensive tasks, suitable for solving CPU-bound problems. However, it may cause overload and is not ideal for lightweight processes.
 - **Threading:** Suitable for parallel tasks that share data with minimal CPU usage. However, in this project, threads could be cumbersome to manage and are not the best fit.
 
-<img width="394" alt="Screenshot 2024-04-20 at 00 15 08" src="https://github.com/Luciensday/gla_web_scrapper/assets/128807685/7c057fac-7323-4cb6-ae81-ec1dc194fb3a">
+
 
 ```python
     async with aiohttp.ClientSession() as session:
@@ -56,4 +56,4 @@ The key differences in the optimized solution are:
 ```python
     sitemap_content = requests.get(sitemap_url, timeout=10).text
 ```
-<img width="419" alt="Screenshot 2024-04-20 at 00 40 01" src="https://github.com/Luciensday/gla_web_scrapper/assets/128807685/bdc66487-d491-452b-9e88-30c45e7ebf7f">
+
