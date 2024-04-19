@@ -53,5 +53,7 @@ The key differences in the optimized solution are:
 - This option utilizes the `requests` library.
     - Cons: `requests` is not designed for asynchronous processes.
     - Pros: `requests.get(url, timeout=10)` allows us to set a timeout limit to prevent undue load. (as per below image)
-  
+```python
+    sitemap_content = requests.get(sitemap_url, timeout=10).text
+```
 <img width="419" alt="Screenshot 2024-04-20 at 00 40 01" src="https://github.com/Luciensday/gla_web_scrapper/assets/128807685/bdc66487-d491-452b-9e88-30c45e7ebf7f">
