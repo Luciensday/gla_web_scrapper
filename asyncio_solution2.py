@@ -5,8 +5,8 @@ import re
 from collections import defaultdict
 
 # Function to search for keyword in webpage content
-def search_keyword_in_webpage(content, keyword):
-    occurrences = len(re.findall(keyword, content, re.IGNORECASE))
+def search_keyword_in_webpage(body_content, keyword):
+    occurrences = len(re.findall(keyword, body_content, re.IGNORECASE))
     return occurrences
 
 # Function to fetch URLs from XML sitemap
@@ -27,10 +27,8 @@ async def fetch_webpage_content(session, url):
         body_content = soup.get_text()
         return body_content
 
+
 # Main function to perform the task
-
-keyword = input("Enter the keyword or phrase to search for: ")
-
 async def main():
 
     sitemap_url = "https://www.london.gov.uk/sitemap.xml?page=1"
@@ -46,12 +44,12 @@ async def main():
         all_fetched_content = await asyncio.gather(*tasks)
 
      
-        #create empty dictionary using defaultdic
+        keyword = input("Enter the keyword or phrase to search for: ")
         results = defaultdict(int)
         total_count = 0
 
-        for url, content in zip(urls, all_fetched_content):
-            occurrences = search_keyword_in_webpage(content, keyword)
+        for url, body_content in zip(urls, all_fetched_content):
+            occurrences = search_keyword_in_webpage(body_content, keyword)
             if occurrences > 0:
                 results[url] = occurrences
                 total_count += occurrences
