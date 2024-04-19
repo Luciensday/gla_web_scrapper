@@ -20,7 +20,7 @@ except requests.exceptions.RequestException as e:
 
 soup = BeautifulSoup(sitemap_content, "xml")
 urls = [loc.text for loc in soup.find_all("loc")]
-urls = urls[0:10]
+urls = urls[0:100]
 
 keyword = input("Enter the keyword or phrase to search for: ")
 results = defaultdict(int)
