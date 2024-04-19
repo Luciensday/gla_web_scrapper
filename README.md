@@ -27,6 +27,18 @@ After evaluating three options for optimization, Asyncio is the most suitable so
 
 <img width="394" alt="Screenshot 2024-04-20 at 00 15 08" src="https://github.com/Luciensday/gla_web_scrapper/assets/128807685/7c057fac-7323-4cb6-ae81-ec1dc194fb3a">
 
+```python
+    async with aiohttp.ClientSession() as session:
+        tasks = []
+        for url in urls:
+            task = fetch_webpage_content(session, url)
+            tasks.append(task)
+
+        # gather is run all the tasks concurrently
+        all_fetched_content = await asyncio.gather(*tasks)
+
+```
+
 
 The key differences in the optimized solution are:
 - Usage of `aiohttp` instead of the `requests` library because `aiohttp` can handle asynchronous data fetching efficiently.
